@@ -112,11 +112,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # Chef provisioner 
       rac2n1.omnibus.chef_version = '12.6.0'
 
-      #rac2n1.vm.provision :chef_solo do |chef|
-      #  chef.run_list = [
-      #  'recipe[rac2n2::default]'
-      #  ]
-      #end
+      rac2n1.vm.provision :chef_solo do |chef|
+        chef.run_list = [
+        'recipe[cbora12crac2node::default]', 'recipe[cbora12crac2node::update_etc_hosts]'
+        ]
+      end
 
     end
 
@@ -183,11 +183,11 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # Chef provisioner 
       rac2n2.omnibus.chef_version = '12.6.0' 
 
-      #rac2n2.vm.provision :chef_solo do |chef|
-      #  chef.run_list = [
-      #  'recipe[cbora12crac2node::default]'
-      #  ]
-      #end     
+      rac2n2.vm.provision :chef_solo do |chef|
+        chef.run_list = [
+        'recipe[cbora12crac2node::default]', 'recipe[cbora12crac2node::update_etc_hosts]'
+        ]
+      end     
 
     end
     # End rac2n2
