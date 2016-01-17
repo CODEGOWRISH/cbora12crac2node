@@ -32,28 +32,28 @@ bash 'set up ssh key' do
     then
 
         cd $sshdir
-        echo sshpass -p "#{node[:passwordString]}" scp -o StrictHostKeyChecking=no -r authorized_keys "#{dbUser}@#{node[:hostnameNode2]}":${sshdir}/. > /home/oracle/test
-        sshpass -p "#{node[:passwordString]}" scp -r -o StrictHostKeyChecking=no -r authorized_keys "#{dbUser}@#{node[:hostnameNode2]}":${sshdir}/.
+        echo sshpass -p "#{node[:passwordString]}" scp -o StrictHostKeyChecking=no -r authorized_keys "#{dbUser}"@"#{node[:hostnameNode2]}":${sshdir}/. > /home/oracle/test
+        sshpass -p "#{node[:passwordString]}" scp -r -o StrictHostKeyChecking=no -r authorized_keys "#{dbUser}"@"#{node[:hostnameNode2]}":${sshdir}/.
     else
 
         cd $sshdir
-        echo sshpass -p "#{node[:passwordString]}" scp -o StrictHostKeyChecking=no -r authorized_keys "#{dbUser}@#{node[:hostnameNode1]}":${sshdir}/. > /home/oracle/test
-        sshpass -p "#{node[:passwordString]}" scp -o StrictHostKeyChecking=no -r authorized_keys "#{dbUser}@#{node[:hostnameNode1]}":${sshdir}/.
+        echo sshpass -p "#{node[:passwordString]}" scp -o StrictHostKeyChecking=no -r authorized_keys "#{dbUser}"@"#{node[:hostnameNode1]}":${sshdir}/. > /home/oracle/test
+        sshpass -p "#{node[:passwordString]}" scp -o StrictHostKeyChecking=no -r authorized_keys "#{dbUser}"@"#{node[:hostnameNode1]}":${sshdir}/.
     fi
 
   EOH
 end
 
-bash 'Copy authorized_keys file' do
-  user "#{dbUser}"
-  code <<-EOH
-    homedir=`grep #{dbUser} /etc/passwd | cut -d: -f6`
-    cd $homedir
-    sshdir=${homedir}/.ssh
-    cd $sshdir
+#bash 'Copy authorized_keys file' do
+  #user "#{dbUser}"
+  #code <<-EOH
+    #homedir=`grep #{dbUser} /etc/passwd | cut -d: -f6`
+    #cd $homedir
+    #sshdir=${homedir}/.ssh
+    #cd $sshdir
 
-    echo sshpass -p "#{node[:passwordString]}" scp -r authorized_keys "#{node[:hostnameNode1]}":${sshdir}/. > $homedir/test
-    echo sshpass -p "#{node[:passwordString]}" scp -r authorized_keys "#{node[:hostnameNode2]}":${sshdir}/. >> $homedir/test
+    #echo sshpass -p "#{node[:passwordString]}" scp -r authorized_keys "#{node[:hostnameNode1]}":${sshdir}/. > $homedir/test
+    #echo sshpass -p "#{node[:passwordString]}" scp -r authorized_keys "#{node[:hostnameNode2]}":${sshdir}/. >> $homedir/test
 
 
     #sshpass -p "#{node[:passwordString]}" scp -r authorized_keys "#{node[:hostnameNode1]}":${sshdir}/.
@@ -64,5 +64,5 @@ bash 'Copy authorized_keys file' do
     #echo $to_dir
     #echo 
     #sshpass -p "#{node[:passwordString]}" scp -r authorized_keys #{node[:hostnameNode1]}:/home/oracle/.ssh/.
-  EOH
-end
+  #EOH
+#end
