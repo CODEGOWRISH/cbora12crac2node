@@ -6,6 +6,15 @@
 #
 #
 
+# Users and Groups
+default['gridUser'] = 'oracle'
+default['dbUser']   = 'oracle'
+default['oinstallGroup']  = 'oinstall'
+default['osdbaGroup']     = 'dba'
+default['asmadminGroup']  = 'dba'
+default['asmdbaGroup']    = 'dba'
+default['passwordString']       = 'oracle'
+
 # Cluster Name
 default['clusterName'] = 'rac2'
 
