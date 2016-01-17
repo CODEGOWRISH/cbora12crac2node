@@ -13,7 +13,7 @@ default['oinstallGroup']  = 'oinstall'
 default['osdbaGroup']     = 'dba'
 default['asmadminGroup']  = 'dba'
 default['asmdbaGroup']    = 'dba'
-default['passwordString']       = 'oracle'
+default['passwordString'] = 'oracle'
 
 # Cluster Name
 default['clusterName'] = 'rac2'
