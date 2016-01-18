@@ -114,7 +114,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
       rac2n1.vm.provision :chef_solo do |chef|
         chef.run_list = [
-        'recipe[cbora12crac2node::default]', 'recipe[cbora12crac2node::update_etc_hosts]', 'recipe[cbora12crac2node::users_and_groups]'
+        #'recipe[cbora12crac2node::default]', 'recipe[cbora12crac2node::update_etc_hosts]', 'recipe[cbora12crac2node::users_and_groups]'
+        'recipe[cbora12crac2node::prepare_asm_disks]'
         ]
       end
 

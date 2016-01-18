@@ -42,3 +42,11 @@ default['scanIp3'] = '192.168.0.133'
 
 # Hosts File
 default['hostsFile'] = '/etc/hosts'
+
+# Disks
+default['diskDev1'] = '/dev/sdc'
+default['diskDev2'] = '/dev/sdd'
+default['diskDev3'] = '/dev/sde'
+
+default['sfdisk2gb_format_file']      = '/tmp/sfdisk_2gb.format'
+default['sfdisk2gb_format_template']  = 'sfdisk_2gb.erb'

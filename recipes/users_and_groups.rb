@@ -58,26 +58,3 @@ bash 'set up ssh key' do
 
   EOH
 end
-
-#bash 'Copy authorized_keys file' do
-  #user "#{dbUser}"
-  #code <<-EOH
-    #homedir=`grep #{dbUser} /etc/passwd | cut -d: -f6`
-    #cd $homedir
-    #sshdir=${homedir}/.ssh
-    #cd $sshdir
-
-    #echo sshpass -p "#{node[:passwordString]}" scp -r authorized_keys "#{node[:hostnameNode1]}":${sshdir}/. > $homedir/test
-    #echo sshpass -p "#{node[:passwordString]}" scp -r authorized_keys "#{node[:hostnameNode2]}":${sshdir}/. >> $homedir/test
-
-
-    #sshpass -p "#{node[:passwordString]}" scp -r authorized_keys "#{node[:hostnameNode1]}":${sshdir}/.
-    #sshpass -p "#{password}" scp -r authorized_keys "#{node[:hostnameNode2]}":${sshdir}/.
-
-    #cd .ssh
-    #to_dir=`pwd`
-    #echo $to_dir
-    #echo 
-    #sshpass -p "#{node[:passwordString]}" scp -r authorized_keys #{node[:hostnameNode1]}:/home/oracle/.ssh/.
-  #EOH
-#end
