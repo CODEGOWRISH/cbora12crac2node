@@ -5,7 +5,8 @@
 #   Formats disks using 'sfdisk'
 #   Creates ASM disks using oracleasm
 #
-#
+# TBD - add checks to see if these disks are already formatted, and do only if not
+# TBD - make an array of disks, their sizes and sfdisk tempalte erb files in attributes file, and loop through
 
 # Create the template file to use for sfdisk command
 template node[:sfdisk2gb_format_file] do
@@ -13,8 +14,6 @@ template node[:sfdisk2gb_format_file] do
 end
 
 # Format 2gb disks
-# TBD - add checks to see if these disks are already formatted, and do only if not
-# TBD - make an array of disks, their sizes and sfdisk tempalte erb files in attributes file, and loop through
 formatFile = node[:sfdisk2gb_format_file]
 
 diskDev=node[:diskDev1]
@@ -35,4 +34,29 @@ execute 'sfdisk 3' do
   command "sfdisk #{diskDev} < #{formatFile}"
 end
 
-# Creae ASM disks
+# Create ASM disks
+devSuffix='1'
+
+diskDev=node[:diskDev1]
+execute 'create asm disk 1' do
+  user "root"
+  command "oracleasm createdisk DISK1 #{diskDev}#{devSuffix}"
+end
+
+diskDev=node[:diskDev2]
+execute 'create asm disk 2' do
+  user "root"
+  command "oracleasm createdisk DISK2 #{diskDev}#{devSuffix}"
+end
+
+diskDev=node[:diskDev3]
+execute 'create asm disk 3' do
+  user "root"
+  command "oracleasm createdisk DISK3 #{diskDev}#{devSuffix}"
+end
+
+
+execute 'mounting asm disks on node2' do
+  user "root"
+  command "sshpass -p #{node[:rootPassword]} ssh -o StrictHostKeyChecking=no root@#{node[:hostnameNode2]} oracleasm scandisks > /tmp/asmdisk.mount.node2.out"
+end
