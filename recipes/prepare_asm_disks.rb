@@ -13,7 +13,7 @@ template node[:sfdisk2gb_format_file] do
 end
 
 # Format 2gb disks
-# TBD - add checks to see if these disks are already formatted
+# TBD - add checks to see if these disks are already formatted, and do only if not
 # TBD - make an array of disks, their sizes and sfdisk tempalte erb files in attributes file, and loop through
 formatFile = node[:sfdisk2gb_format_file]
 
@@ -34,3 +34,5 @@ execute 'sfdisk 3' do
   user "root"
   command "sfdisk #{diskDev} < #{formatFile}"
 end
+
+# Creae ASM disks

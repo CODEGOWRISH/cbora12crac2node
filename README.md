@@ -6,6 +6,8 @@ TODO: Enter the cookbook description here.
 
 TODO: List your supported platforms.
 
+For high level steps see: https://github.com/gowrishdba/Oracle-KnowledgeBase/blob/master/oracle-rac-using-virtualbox.txt
+
 ## Attributes
 
 <table>
@@ -28,6 +30,8 @@ TODO: List your supported platforms.
 ### cbora12crac2node::default
 
 Include `cbora12crac2node` in your node's `run_list`:
+
+ACTUALLY, SEE VAGRANTFILE
 
 ```json
 {

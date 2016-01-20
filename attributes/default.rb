@@ -14,6 +14,7 @@ default['osdbaGroup']     = 'dba'
 default['asmadminGroup']  = 'dba'
 default['asmdbaGroup']    = 'dba'
 default['passwordString'] = 'oracle'
+default['rootPassword']   = 'root'
 
 # Cluster Name
 default['clusterName'] = 'rac2'
