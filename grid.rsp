@@ -405,7 +405,7 @@ oracle.install.asm.ClientDataFile=
 # Specify whether to ignore down nodes during upgrade operation.
 # Value should be 'true' to ignore down nodes otherwise specify 'false'
 #-------------------------------------------------------------------------------
-oracle.install.crs.config.ignoreDownNodes=NO
+oracle.install.crs.config.ignoreDownNodes=false
 ################################################################################
 #                                                                              #
 #                               MANAGEMENT OPTIONS                             #
