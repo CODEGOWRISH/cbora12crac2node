@@ -16,6 +16,30 @@ default['asmdbaGroup']    = 'dba'
 default['passwordString'] = 'oracle'
 default['rootPassword']   = 'root'
 
+# Directories
+default['oraAppBase']['dirName']    = '/u01/app'
+default['oraInventory']['dirName']  = '/u01/app/oraInventory'
+default['gridHome']['dirName']      = '/u01/app/12cGrid'
+default['gridBase']['dirName']      = '/u01/app/grid'
+
+# Directory Ownership
+default['oraAppBase']['dirOwner']     = 'oracle'
+default['oraInventory']['dirOwner']   = 'oracle'
+default['gridHome']['dirOwner']       = 'oracle'
+default['gridBase']['dirOwner']       = 'oracle'
+
+# Directory Group
+default['oraAppBase']['dirGroup']     = 'dba'
+default['oraInventory']['dirGroup']   = 'dba'
+default['gridHome']['dirGroup']       = 'dba'
+default['gridBase']['dirGroup']       = 'dba'
+
+# Directory Permission
+default['oraAppBase']['dirPerm']    = '755'
+default['oraInventory']['dirPerm']  = '755'
+default['gridHome']['dirPerm']      = '755'
+default['gridBase']['dirPerm']      = '755'
+
 # Cluster Name
 default['clusterName'] = 'rac2'
 
