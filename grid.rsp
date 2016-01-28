@@ -257,7 +257,7 @@ oracle.install.crs.config.clusterNodes=rac2n1:rac2n1-vip,rac2n2:rac2n2-vip
 # For example: eth0:140.87.24.0:1,eth1:10.2.1.0:2,eth2:140.87.52.0:3
 #
 #-------------------------------------------------------------------------------
-oracle.install.crs.config.networkInterfaceList=eth1:192.168.0.0:1,eth2:192.168.0.0:1,eth3:10.10.10.0:2
+oracle.install.crs.config.networkInterfaceList=eth1:192.168.0.0:1,eth2:10.10.10.0:2
 
 
 ################################################################################

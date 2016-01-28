@@ -71,7 +71,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # customization syntax for virtualbox
       rac2n1.vm.provider "virtualbox" do |v|
           #v.customize [ "modifyvm", :id, "--cpus", "1" ]
-          #v.customize [ "modifyvm", :id, "--memory", "768" ]
+          v.customize [ "modifyvm", :id, "--memory", "3072" ]
 
           # ASM Disks for data/fra disk groups
           asm_disk_count=3
@@ -85,10 +85,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             file_name="#{file_name_pattern}#{disk}.#{file_type}"
             port_number=disk+1
 
-            unless File.exist?(file_name)
+            #unless File.exist?(file_name)
               v.customize ['createhd', '--variant', 'Fixed', '--filename', file_name, '--format', file_type, '--size', 2 * 1024]
               v.customize ['modifyhd', file_name , '--type', 'shareable']
-            end
+            #end
 
             v.customize ["storageattach", :id, "--storagectl", "SATA Controller", "--port", port_number, "--device", 0, "--type", "hdd", '--medium', file_name]
 
@@ -136,7 +136,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       rac2n2.vm.provider "virtualbox" do |v|
           # Different way of setting cpu and memory compared to the other node above
           #v.cpus = "1"
-          #v.memory = "768"
+          v.memory = "3072"
 
           # ASM Disks for data/fra disk groups
           asm_disk_count=3
@@ -157,16 +157,16 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
           end
 
-          # EXAMPLE DISK-ADD BEGIN (KEEP THIS COMMENTED)
-          #file_to_disk = 'C:\Users\dbgsm0\VirtualBox VMs\VMDisks\rac2-asm1.vmdk'
+          ##EXAMPLE DISK-ADD BEGIN (KEEP THIS COMMENTED)
+          ##file_to_disk = 'C:\Users\dbgsm0\VirtualBox VMs\VMDisks\rac2-asm1.vmdk'
 
-          #unless File.exist?(file_to_disk)
-            #v.customize ['createhd', '--variant', 'Fixed', '--filename', file_to_disk, '--size', 1 * 1024]
-            #v.customize ['modifyhd', file_to_disk , '--type', 'shareable']
-          #end
+          ##unless File.exist?(file_to_disk)
+            ##v.customize ['createhd', '--variant', 'Fixed', '--filename', file_to_disk, '--size', 1 * 1024]
+            ##v.customize ['modifyhd', file_to_disk , '--type', 'shareable']
+          ##end
   
-          #v.customize ["storageattach", :id, "--storagectl", "SATA Controller", "--port", 2, "--device", 0, "--type", "hdd", '--medium', file_to_disk]
-          # EXAMPLE END
+          ##v.customize ["storageattach", :id, "--storagectl", "SATA Controller", "--port", 2, "--device", 0, "--type", "hdd", '--medium', file_to_disk]
+          ##EXAMPLE END
       end
 
       # Network
