@@ -99,10 +99,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # Network
       # Public IP
       rac2n1.vm.network "private_network", ip: "192.168.0.111", virtualbox__intnet: true
-      # VIP
-      rac2n1.vm.network "private_network", ip: "192.168.0.121", virtualbox__intnet: true
       # Private Interconnect
       rac2n1.vm.network "private_network", ip: "10.10.10.111", virtualbox__intnet: true
+      # VIP --> No need to configure an interface for VIP
+      ###rac2n1.vm.network "private_network", ip: "192.168.0.121", virtualbox__intnet: true
 
       # Provisioning steps
 
@@ -116,7 +116,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         chef.run_list = [
         #'recipe[cbora12crac2node::default]', 'recipe[cbora12crac2node::update_etc_hosts]', 'recipe[cbora12crac2node::users_and_groups]', 'recipe[cbora12crac2node::configure_oracleasm]', 'recipe[cbora12crac2node::prepare_asm_disks]'
         #'recipe[cbora12crac2node::directories]'
-        'recipe[cbora12crac2node::users_and_groups]'
+        #'recipe[cbora12crac2node::users_and_groups]'
         ]
       end
 
@@ -172,10 +172,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
       # Network
       # Public IP
       rac2n2.vm.network "private_network", ip: "192.168.0.112", virtualbox__intnet: true
-      # VIP
-      rac2n2.vm.network "private_network", ip: "192.168.0.122", virtualbox__intnet: true
       # Private Interconnect
       rac2n2.vm.network "private_network", ip: "10.10.10.112", virtualbox__intnet: true
+      # VIP  -->  NO NEED TO CONFIGURE A INTERFACE FOR VIP
+      ###rac2n2.vm.network "private_network", ip: "192.168.0.122", virtualbox__intnet: true
 
       # Provisioning steps
 
