@@ -44,15 +44,27 @@ bash 'set up ssh key' do
         echo sshpass -p "#{node[:passwordString]}" ssh -o StrictHostKeyChecking=no "#{dbUser}"@"#{node[:hostnameNode2]}" /bin/mkdir -p $sshdir > /home/oracle/run.mkdir
         sshpass -p "#{node[:passwordString]}" ssh -o StrictHostKeyChecking=no "#{dbUser}"@"#{node[:hostnameNode2]}" /bin/mkdir -p $sshdir > /home/oracle/out.mkdir 2>> /home/oracle/out.mkdir
 
+        # Do a ssh to self and remote machine - so that one can ssh to itself and remote host
+        sshpass -p "#{node[:passwordString]}" ssh -o StrictHostKeyChecking=no "#{dbUser}"@"#{node[:hostnameNode1]}" date
+        sshpass -p "#{node[:passwordString]}" ssh -o StrictHostKeyChecking=no "#{dbUser}"@"#{node[:hostnameNode2]}" date
+
+
         cd $sshdir
         echo sshpass -p "#{node[:passwordString]}" scp -r -o StrictHostKeyChecking=no -r authorized_keys "#{dbUser}"@"#{node[:hostnameNode2]}":${sshdir}/. > /home/oracle/run.scp
         sshpass -p "#{node[:passwordString]}" scp -r -o StrictHostKeyChecking=no -r authorized_keys "#{dbUser}"@"#{node[:hostnameNode2]}":${sshdir}/. > /home/oracle/out.scp 2>> /home/oracle/out.scp
 
     else
 
+
+        # Do a ssh to self and remote machine - so that one can ssh to itself and remote host
+        sshpass -p "#{node[:passwordString]}" ssh -o StrictHostKeyChecking=no "#{dbUser}"@"#{node[:hostnameNode1]}" date
+        sshpass -p "#{node[:passwordString]}" ssh -o StrictHostKeyChecking=no "#{dbUser}"@"#{node[:hostnameNode2]}" date
+
+
         cd $sshdir
         echo sshpass -p "#{node[:passwordString]}" scp -o StrictHostKeyChecking=no -r authorized_keys "#{dbUser}"@"#{node[:hostnameNode1]}":${sshdir}/. > /home/oracle/run.scp
         sshpass -p "#{node[:passwordString]}" scp -r -o StrictHostKeyChecking=no -r authorized_keys "#{dbUser}"@"#{node[:hostnameNode1]}":${sshdir}/. > /home/oracle/out.scp 2>> /home/oracle/out.scp
+
 
     fi
 

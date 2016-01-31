@@ -38,21 +38,24 @@ end
 devSuffix='1'
 
 diskDev=node[:diskDev1]
+asmDisk=node[:grddgDisk1]
 execute 'create asm disk 1' do
   user "root"
-  command "oracleasm createdisk DISK1 #{diskDev}#{devSuffix}"
+  command "oracleasm createdisk #{asmDisk} #{diskDev}#{devSuffix}"
 end
 
 diskDev=node[:diskDev2]
+asmDisk=node[:grddgDisk2]
 execute 'create asm disk 2' do
   user "root"
-  command "oracleasm createdisk DISK2 #{diskDev}#{devSuffix}"
+  command "oracleasm createdisk #{asmDisk} #{diskDev}#{devSuffix}"
 end
 
 diskDev=node[:diskDev3]
+asmDisk=node[:grddgDisk3]
 execute 'create asm disk 3' do
   user "root"
-  command "oracleasm createdisk DISK3 #{diskDev}#{devSuffix}"
+  command "oracleasm createdisk #{asmDisk} #{diskDev}#{devSuffix}"
 end
 
 

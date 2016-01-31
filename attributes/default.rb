@@ -73,5 +73,11 @@ default['diskDev1'] = '/dev/sdc'
 default['diskDev2'] = '/dev/sdd'
 default['diskDev3'] = '/dev/sde'
 
+# fdisk format file
 default['sfdisk2gb_format_file']      = '/tmp/sfdisk_2gb.format'
 default['sfdisk2gb_format_template']  = 'sfdisk_2gb.erb'
+
+# ASM Grid disk group disk Names
+default['grddgDisk1'] = 'DISK91'
+default['grddgDisk2'] = 'DISK92'
+default['grddgDisk3'] = 'DISK93'
