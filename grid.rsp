@@ -384,7 +384,7 @@ oracle.install.asm.diskGroup.disks=ORCL:DISK91,ORCL:DISK92,ORCL:DISK93
 #     oracle.install.asm.diskGroup.diskDiscoveryString=\\.\ORCLDISK*
 #
 #-------------------------------------------------------------------------------
-oracle.install.asm.diskGroup.diskDiscoveryString=ORCL:*
+oracle.install.asm.diskGroup.diskDiscoveryString='ORCL:*'
 
 #-------------------------------------------------------------------------------
 # oracle.install.asm.monitorPassword=password

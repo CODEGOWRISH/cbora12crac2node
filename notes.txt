@@ -1,0 +1,34 @@
+WHICH LOG FILE TO LOOK AT:
+You can find the log of this install session at:
+ /u01/app/oraInventory/logs/installActions2016-02-01_06-24-46AM.log
+
+ROOT.SH steps:
+
+Update Inventory successful.
+..................................................   95% Done.
+
+As a root user, execute the following script(s):
+        1. /u01/app/oraInventory/orainstRoot.sh
+        2. /u01/app/grid12c/root.sh
+
+Execute /u01/app/oraInventory/orainstRoot.sh on the following nodes:
+[rac2n1, rac2n2]
+Execute /u01/app/grid12c/root.sh on the following nodes:
+[rac2n1, rac2n2]
+
+Run the script on the local node first. After successful completion, you can start the script in parallel on all other nodes.
+
+..................................................   100% Done.
+Successfully Setup Software.
+As install user, execute the following script to complete the configuration.
+        1. /u01/app/grid12c/cfgtoollogs/configToolAllCommands RESPONSE_FILE=<response_file>
+
+        Note:
+        1. This script must be run on the same host from where installer was run.
+        2. This script needs a small password properties file for configuration assistants that require passwords (refer to install guide documentation).
+
+        WHICH LOGFILE FOR THIS:  You can see the log file: /u01/app/grid12c/cfgtoollogs/oui/configActions2016-02-01_09-15-50-AM.log
+
+
+TBD:
+How to verify if grid has installed, configured and asm is working well?
