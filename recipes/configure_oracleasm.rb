@@ -2,8 +2,6 @@
 #
 #   Configures oracleasm (not the asm disks)
 #
-#   Author - Gowrish Mallipattana
-#
 #   TBD - Loop through array of node than separately calling them out
 #   TBD - Keep root password in a data-bag or in an attribute
 
