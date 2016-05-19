@@ -1,8 +1,6 @@
 #
 #   Creates necessary directories for RAC install
 #
-#   Author - Gowrish Mallipattana
-#
 # TBD - create a erb file to generate a shell script, create that shell in node1, 
 #       execute it in node1 and  with ssh in node2 in two steps here
 
