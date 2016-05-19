@@ -2,7 +2,6 @@
 #
 #  Default attributes file for RAC on Linux VM
 #
-#  Author - Gowrish Mallipattana
 #
 #
 
