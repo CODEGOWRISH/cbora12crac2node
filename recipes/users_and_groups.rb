@@ -1,9 +1,6 @@
 #
 #
 # users_and_groups.rb
-#
-# Author :  Gowrish Mallipattana
-# 
 
 #  CAUTION - UNDERSTAND THIS CORRETLY AND REWRITE.  IT IS MESSING UP AND NOT REALLY SETTING THE PASSWORD TO WHAT WE WANTED
 #
